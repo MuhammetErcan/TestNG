@@ -9,6 +9,8 @@ public class _05Attributes {
         -5000, +5000 küçük değerli olan önceliklidir
         priority yazılmazsa default her testin prioritysi sıfırdır
         priority'si eşit olanları testNG method ismine göre çalıştırır.
+        prioritysi daha küçük de olsa dependsOnMethods ile başka bir methoda bağlı ise,
+        önce bağlı olduğu method çalışır.
      */
 
     @Test(testName = "5  nolu test ",priority = 1)
