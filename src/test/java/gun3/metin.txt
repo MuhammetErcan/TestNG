@@ -1,0 +1,5 @@
+Senaryo
+      1- Siteyi açınız.
+      2- Login olun, Login oldugunuzu assert edin.
+      3- Newsletter  Subscribe edin.
+      4- Newsletter UnSubscribe Islemi yapin.

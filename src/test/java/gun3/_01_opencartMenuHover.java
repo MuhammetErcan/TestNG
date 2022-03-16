@@ -1,21 +1,18 @@
-package gun02;
+package gun3;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.LocatorsInterface;
 import utils.ParentClass;
-import static utils.LocatorsInterface.*;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import static utils.LocatorClass.*;
+import static utils.LocatorClass.url_static_Class;
 
-public class Test04_opencart1 extends ParentClass implements LocatorsInterface {
+public class _01_opencartMenuHover extends ParentClass implements LocatorsInterface {
 
     String url="http://opencart.abstracta.us/index.php?route=common/home";
     By lSearchInput=By.cssSelector("input[name='search']");
