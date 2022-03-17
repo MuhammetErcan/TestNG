@@ -64,6 +64,26 @@ public class ParentClass {
        }
    }
 
+    public void hover(WebElement element){
+        hover(element, 10);
+    }
+
+    public void hover(WebElement element, long milis){
+        new Actions(driver).moveToElement(element).pause(milis).build().perform();
+    }
+
+    public boolean isExist(By locator){
+        return driver.findElements(locator).size()>0;
+    }
+
+    public void sleep(long milis){
+        try {
+            Thread.sleep(milis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
    public void scrollElement(WebElement element){
        JavascriptExecutor js=(JavascriptExecutor) driver;
        js.executeScript("arguments[0].scrollIntoView();",element);
