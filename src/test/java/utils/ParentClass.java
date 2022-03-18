@@ -51,12 +51,16 @@ public class ParentClass {
    public void clickTo(By locater){
        wait.until(ExpectedConditions.elementToBeClickable(locater)).click();
    }
+    public void clickTo(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
 
    public void sendKeysTo(By locater, String text){
+       wait.until(ExpectedConditions.visibilityOfElementLocated(locater)).clear();
        wait.until(ExpectedConditions.visibilityOfElementLocated(locater)).sendKeys(text);
    }
 
-   public void hoverMenu(By locater){
+   public void hoverWithLocator(By locater){
        List<WebElement>list=driver.findElements(locater);
        Actions builder=new Actions(driver);
        for (WebElement element:list) {

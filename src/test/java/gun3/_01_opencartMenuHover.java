@@ -62,7 +62,7 @@ public class _01_opencartMenuHover extends ParentClass implements LocatorsInterf
         public void test02() {
 
 
-            hoverMenu(lMenuList);
+            hoverWithLocator(lMenuList);
 
 
             List<String> desktopStringList = new LinkedList<>() {{
@@ -72,7 +72,7 @@ public class _01_opencartMenuHover extends ParentClass implements LocatorsInterf
 
             WebElement desktopElement = driver.findElement(ldesktopElement);
 
-            hoverMenu(ldesktopElement);
+            hoverWithLocator(ldesktopElement);
 
             List<WebElement> dstktopAltList = driver.findElements(ldesktopAltElements);
 
@@ -89,7 +89,7 @@ public class _01_opencartMenuHover extends ParentClass implements LocatorsInterf
                 add("Windows (0)");
             }};
 
-            hoverMenu(llaptopsElement);
+            hoverWithLocator(llaptopsElement);
 
             List<WebElement> laptopsAltList = driver.findElements(lLapotopAltElements);
             for (int i = 0; i < laptopsAltList.size(); i++) {
@@ -113,7 +113,7 @@ public class _01_opencartMenuHover extends ParentClass implements LocatorsInterf
             add("Web Cameras (0)");
         }};
 
-        hoverMenu(lcomponentElement);
+            hoverWithLocator(lcomponentElement);
 
         List<WebElement>componentAltList=driver.findElements(lcomponentAltList);
 
@@ -149,7 +149,7 @@ public class _01_opencartMenuHover extends ParentClass implements LocatorsInterf
             add("test 9 (0)");
         }};
 
-        hoverMenu(lmp3PlayerElement);
+            hoverWithLocator(lmp3PlayerElement);
 
         List<WebElement>mp3PlayerAltList=driver.findElements(lmp3PlayerAltElements);
 

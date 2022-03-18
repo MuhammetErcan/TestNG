@@ -3,6 +3,8 @@ package gun3;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
+import utils.Driver;
 import utils.ParentClass;
 
 import java.util.List;
@@ -23,6 +25,17 @@ public class HomePage extends ParentClass {
     By lButtonContinue=By.cssSelector("div[class='pull-right']");
     By lText=By.cssSelector("div[class='alert alert-success alert-dismissible']");
     By lButtonNo=By.cssSelector("input[value='0']");
+    By lSearchInput=By.cssSelector("input[name='search']");
+    By lSearchButton=By.cssSelector("#search button");
+    By lMacList=By.cssSelector("div[class='caption'] a");
+    By lComponents=By.linkText("Components");
+    By lMonitorButton=By.partialLinkText("Monitors");
+    By lMonitorList=By.cssSelector("div[class='product-thumb']");
+    By lAddToWish=By.cssSelector("button[data-toggle='tooltip'] i[class='fa fa-heart']");
+    By lFavori=By.cssSelector("i[class='fa fa-heart']");
+    By lFavoriElemani=By.cssSelector("table[class='table table-bordered table-hover'] td[class='text-left'] a");
+
+
 
     public void goToSite(){
         openSite(url);
@@ -43,4 +56,63 @@ public class HomePage extends ParentClass {
 
         Assert.assertEquals(dropdownList.size(),5);
     }
+
+    public void clickToNewsletter(){
+        WebElement newsletter=driver.findElement(lNewsLetter);
+        scrollElement(newsletter);
+        clickTo(lNewsLetter);
+    }
+
+    public void subscribeYesAndCheck(){
+        clickTo(lButtonYes);
+        clickTo(lButtonContinue);
+
+        WebElement textElement =driver.findElement(lText);
+
+        Assert.assertTrue(textElement.getText().contains("Success"));
+    }
+
+    public void newsletterNoAndCheck(){
+        clickTo(lButtonNo);
+        clickTo(lButtonContinue);
+        WebElement textElement =driver.findElement(lText);
+
+        Assert.assertTrue(textElement.getText().contains("Success"));
+    }
+
+    public void searchMac(){
+        sendKeysTo(lSearchInput,"Mac");
+        clickTo(lSearchButton);
+    }
+
+    public void macListCheck(){
+        List<WebElement>macList=driver.findElements(lMacList);
+        for (WebElement element: macList) {
+            Assert.assertTrue(element.getText().contains("Mac"));
+        }
+
+    }
+
+    public void clickMonitor(){
+        hoverWithLocator(lComponents);
+        clickTo(lMonitorButton);
+    }
+
+    public void monitorChoose(){
+        List<WebElement> monitors=driver.findElements(lMonitorList);
+        int randomSayi=(int) (Math.random()*2);
+        String choosenUrunName=monitors.get(randomSayi).getText();
+
+        clickTo(monitors.get(randomSayi));
+        WebElement aa=driver.findElement(By.cssSelector("div[class='col-sm-4']>h1"));
+        System.out.println(aa.getText());
+        clickTo(lAddToWish);
+        goToLogin();
+        loginAndCheck();
+        clickTo(lFavori);
+        WebElement favoriUrun=driver.findElement(lFavoriElemani);
+        System.out.println(favoriUrun.getText());
+        Assert.assertEquals(favoriUrun.getText(),aa.getText());
+    }
+
 }
