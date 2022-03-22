@@ -1,4 +1,4 @@
-package gun3;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import utils.Driver;
 import utils.ParentClass;
+import utils.WaitConditions;
 
 import java.util.List;
 
@@ -32,10 +33,17 @@ public class HomePage extends ParentClass {
     By lMonitorButton=By.partialLinkText("Monitors");
     By lMonitorList=By.cssSelector("div[class='product-thumb']");
     By lAddToWish=By.cssSelector("button[data-toggle='tooltip'] i[class='fa fa-heart']");
-    By lFavori=By.cssSelector("i[class='fa fa-heart']");
+    By lFavori=By.cssSelector("a[id='wishlist-total']");
     By lFavoriElemani=By.cssSelector("table[class='table table-bordered table-hover'] td[class='text-left'] a");
-
-
+    By leditAccount=By.linkText("Edit Account");
+    By lname=By.cssSelector("input[name='firstname']");
+    By lLastname=By.cssSelector("input[name='lastname']");
+    By lEmailSecond=By.cssSelector("input[name='email']");
+    By lphone=By.cssSelector("input[name='telephone']");
+    By lContinueButton=By.cssSelector("input[value='Continue']");
+    By ltext=By.cssSelector("div[class='alert alert-success alert-dismissible']");
+    By lLogout = By.xpath("//div[@id='top-links']//a[text()='Logout']");
+    By lNotification = By.cssSelector("div.alert.alert-success");
 
     public void goToSite(){
         openSite(url);
@@ -55,6 +63,21 @@ public class HomePage extends ParentClass {
         List<WebElement> dropdownList=driver.findElements(ldropdowns);
 
         Assert.assertEquals(dropdownList.size(),5);
+    }
+
+    public void loginAs(String username, String password){
+        sendKeysTo(lEmail,username);
+        sendKeysTo(lPassword, password);
+        clickTo(submitButton);
+        waitFor(lLogout, WaitConditions.exist);
+    }
+
+    public void verifyNotification(String str){
+        verifyTextIn(lNotification, str);
+    }
+
+    public void clickLinkText(String str){
+        clickTo(By.partialLinkText(str));
     }
 
     public void clickToNewsletter(){
@@ -105,14 +128,45 @@ public class HomePage extends ParentClass {
 
         clickTo(monitors.get(randomSayi));
         WebElement aa=driver.findElement(By.cssSelector("div[class='col-sm-4']>h1"));
-        System.out.println(aa.getText());
+        String bb=aa.getText();
         clickTo(lAddToWish);
-        goToLogin();
-        loginAndCheck();
         clickTo(lFavori);
         WebElement favoriUrun=driver.findElement(lFavoriElemani);
         System.out.println(favoriUrun.getText());
-        Assert.assertEquals(favoriUrun.getText(),aa.getText());
+        Assert.assertEquals(favoriUrun.getText(),bb);
+    }
+
+    public void goToEditAccount(){
+        clickTo(leditAccount);
+    }
+
+    public void fillTheForm(){
+        sendKeysTo(lname,"veli");
+        sendKeysTo(lLastname,"veli");
+        //sendKeysTo(lEmailSecond,"veli@gmail.com");
+        sendKeysTo(lphone,"123456789");
+        clickTo(lContinueButton);
+        waitFor(ltext, WaitConditions.visible);
+        WebElement textElement=driver.findElement(ltext);
+        Assert.assertTrue(textElement.getText().contains("Success"));
+    }
+
+    public void fillTheFormEski(){
+        sendKeysTo(lname,"ali");
+        sendKeysTo(lLastname,"ali");
+        //sendKeysTo(lEmailSecond,"veli@gmail.com");
+        sendKeysTo(lphone,"123456789");
+        clickTo(lContinueButton);
+        waitFor(ltext, WaitConditions.visible);
+        WebElement textElement=driver.findElement(ltext);
+        Assert.assertTrue(textElement.getText().contains("Success"));
+    }
+
+    public void updateAccount(String firstname, String lastname, String telephone){
+        sendKeysTo(lname, firstname, true);
+        sendKeysTo(lLastname, lastname, true);
+        sendKeysTo(lphone, telephone, true);
+        clickTo(lContinueButton);
     }
 
 }

@@ -1,30 +1,32 @@
 package gun5;
 
 import org.testng.annotations.Test;
+import pages.BaseTest;
+import pages.HomePage;
 import utils.Driver;
 
-public class Senaryo_5 extends Home{
-    Home home=new Home();
+public class Senaryo_5 extends BaseTest {
+    HomePage homePage=new HomePage();
 
     @Test
     public void test01(){
-        home.gotoSite();
-        home.goToLogin();
-        home.loginAndCheck();
+        homePage.goToSite();
+        homePage.goToLogin();
+        homePage.loginAndCheck();
     }
 
     @Test
     public void test02(){
-        home.goToEditAccount();
-        home.fillTheForm();
+        homePage.goToEditAccount();
+        homePage.fillTheForm();
 
     }
 
     @Test
     public void test03(){
 
-        home.goToEditAccount();
-        home.fillTheFormEski();
+        homePage.goToEditAccount();
+        homePage.fillTheFormEski();
 
     }
 }

@@ -1,8 +1,10 @@
 package gun3;
 
 import org.testng.annotations.Test;
+import pages.BaseTest;
+import pages.HomePage;
 
-public class _02_openCart2_Nesne_Ile {
+public class _02_openCart2_Nesne_Ile extends BaseTest {
 
     HomePage homePage=new HomePage();
     @Test
@@ -34,9 +36,9 @@ public class _02_openCart2_Nesne_Ile {
 
     @Test(testName = "senaryo 3")
     public void test05(){
-        homePage.goToSite();
+
         homePage.clickMonitor();
-       homePage.monitorChoose();
+        homePage.monitorChoose();
 
     }
 

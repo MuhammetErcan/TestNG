@@ -26,7 +26,7 @@ public class _01_opencartMenuHover2 extends ParentClass implements LocatorsInter
         List<WebElement> elementOfMenuItems = driver.findElements(mainMenuItems);
 
         for (WebElement menuItem : elementOfMenuItems) {
-            hover(menuItem, 300);
+            hoverWithElement(menuItem, 300);
             if (menuItem.findElements(By.cssSelector("div.dropdown-inner")).size()>0) {
                 System.out.println("Alt Menu Var " + menuItem.findElements(By.cssSelector("div.dropdown-inner li")).size());
                 Assert.assertTrue(menuItem.findElement(By.cssSelector(".dropdown-inner")).isDisplayed());

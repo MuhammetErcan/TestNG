@@ -15,6 +15,27 @@ public class Driver {
         return driver;
     }
 
+
+
+    public static WebDriver getDriver(String browser){
+        if (driver == null) {
+            switch (browser.toLowerCase()){
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    driver = new FirefoxDriver();
+                    break;
+                case "edge":
+                    WebDriverManager.edgedriver().setup();
+                    driver = new EdgeDriver();
+                    break;
+                default:
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+            }
+        }
+        return driver;
+    }
+
     public static WebDriver getDriver(Browser browser){
         if(driver==null){
             switch (browser){
