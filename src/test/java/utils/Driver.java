@@ -11,8 +11,7 @@ public class Driver {
 
     private static WebDriver driver;
     public static WebDriver getDriver(){
-        getDriver(Browser.CHROME);
-        return driver;
+        return getDriver("chrome");
     }
 
 
@@ -27,6 +26,10 @@ public class Driver {
                 case "edge":
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
+                    break;
+                case "chrome":
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();
@@ -55,12 +58,9 @@ public class Driver {
                     WebDriverManager.edgedriver().setup();
                     driver=new EdgeDriver();
                     break;
-
             }
-
         }
         return driver;
-
     }
 
     public static void quitDriver(){
