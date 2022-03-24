@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="browser" value="chrome"/>
+    <parameter name="username" value="ali@gmail.com"/>
+    <parameter name="password" value="123456"/>
+    <parameter name="text" value="Merhabaa Dünyaa"/>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/admin/IdeaProjects/TestNG/src/test/java/gun07/pac1/Home.java">
+
+        <classes>
+            <class name="gun07.pac1.Home"/>
+        </classes>
+    </test>
+</suite>
