@@ -1,7 +1,6 @@
 package gun02;
 
 import org.openqa.selenium.WebDriver;
-import utils.Driver;
 
 public class Test03 {
 

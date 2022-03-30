@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests" thread-count="5">
+    <test verbose="2" preserve-order="true"
+          name="TestWithChrome">
+        <parameter name="browser" value="chrome"></parameter>
+        <classes>
+            <class name="gun13.TestClass1">
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="TestWithFirefox">
+        <parameter name="browser" value="firefox"></parameter>
+        <classes>
+            <class name="gun13.TestClass1">
+            </class>
+        </classes>
+    </test>
+
+</suite>

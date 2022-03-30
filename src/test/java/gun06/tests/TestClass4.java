@@ -1,20 +1,13 @@
 package gun06.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import utils.Browser;
-import utils.Driver;
-
-import java.util.Locale;
+import utils.DriverSingleton;
 
 public class TestClass4 {
     WebDriver driver;
@@ -22,7 +15,7 @@ public class TestClass4 {
     @BeforeTest
     @Parameters("browserName")
     public void beforeTest(String browser){
-        driver = Driver.getDriver(browser);
+        driver = DriverSingleton.getDriver(browser);
 
         //driver = Driver.getDriver(Browser.valueOf(browser));
         // getDriver() methodu Browser enum"i aliyor ise
@@ -69,6 +62,6 @@ public class TestClass4 {
             e.printStackTrace();
         }
         System.out.println(bName);
-        Driver.quitDriver();
+        DriverSingleton.quitDriver();
     }
 }

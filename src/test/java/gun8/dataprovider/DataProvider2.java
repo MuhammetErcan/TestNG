@@ -1,23 +1,10 @@
 package gun8.dataprovider;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-import utils.Driver;
-import utils.ParentClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.ParentClass;
 import utils.WaitConditions;
 import static gun8.dataprovider.LocatorAndTools.*;
-import java.time.Duration;
 
 public class DataProvider2 extends ParentClass {
     /*

@@ -3,7 +3,6 @@ package gun5;
 import org.testng.annotations.Test;
 import pages.BaseTest;
 import pages.HomePage;
-import utils.Driver;
 
 public class Senaryo_5 extends BaseTest {
     HomePage homePage=new HomePage();

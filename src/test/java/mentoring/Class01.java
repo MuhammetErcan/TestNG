@@ -5,8 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import pages.BaseTest;
-import utils.Driver;
+import utils.DriverSingleton;
 import utils.ParentClass;
 
 import java.util.List;
@@ -58,7 +57,7 @@ public class Class01 extends ParentClass {
     //(//table[@class='HZDuax'])[1]//td/button
 
     public Class01(){
-        driver= Driver.getDriver();
+        driver= DriverSingleton.getDriver();
     }
 
     @Test
